@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="es"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Mi escolaridad · en blanco</title>
+<style>
+:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+--bg:#fdf8fb;--card:#fff;--tx:#4a4458;--mu:#8e879c;--lav:#e6defa;--mint:#d5f3e4;--peach:#ffe5d6;--rose:#fdd9e6;--sky:#d9edfb;--lemon:#fff3c9;--ac:#9b87e0;--sh:0 6px 20px rgba(155,135,224,.13)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#1f1b2b;--card:#2b2639;--tx:#efeaff;--mu:#a59fb8;--lav:#3d3563;--mint:#27493b;--peach:#573b2f;--rose:#58324392;--sky:#2b4358;--lemon:#554a25}}
+:root[data-theme="dark"]{--bg:#1f1b2b;--card:#2b2639;--tx:#efeaff;--mu:#a59fb8;--lav:#3d3563;--mint:#27493b;--peach:#573b2f;--rose:#583243;--sky:#2b4358;--lemon:#554a25}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--tx);font-family:'Nunito','Quicksand',system-ui,-apple-system,sans-serif;padding:18px 14px 60px;max-width:760px;margin-inline:auto}
+h1{font-size:26px;margin:6px 0 2px}h2{font-size:17px;margin:0}
+.sub{color:var(--mu);font-size:14px;margin-bottom:16px}
+.card{background:var(--card);border-radius:28px;padding:18px;box-shadow:var(--sh);margin-bottom:16px}
+.hero{background:linear-gradient(135deg,var(--lav),var(--rose));}
+.big{font-size:44px;font-weight:800;line-height:1}
+.bar{height:14px;border-radius:99px;background:rgba(155,135,224,.18);overflow:hidden;margin-top:10px}
+.bar>i{display:block;height:100%;border-radius:99px;background:linear-gradient(90deg,#b9a6f2,#f5a9c6);transition:width .6s}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:14px}
+.st{border-radius:22px;padding:12px 14px}.st b{font-size:22px;display:block}.st span{font-size:12px;color:var(--mu)}
+.st:nth-child(1){background:var(--mint)}.st:nth-child(2){background:var(--peach)}.st:nth-child(3){background:var(--sky)}.st:nth-child(4){background:var(--lemon)}.st:nth-child(5){background:var(--rose)}.st:nth-child(6){background:var(--lav)}
+.yr{display:flex;justify-content:space-between;align-items:center;margin:26px 4px 8px}
+.pill{font-size:12px;background:var(--lav);padding:4px 12px;border-radius:99px}
+.cu{margin:10px 4px 6px;color:var(--mu);font-size:13px;font-weight:700}
+.subj{display:flex;align-items:center;gap:10px;width:100%;text-align:left;border:0;background:var(--card);color:var(--tx);font:inherit;padding:13px 16px;border-radius:22px;margin-bottom:8px;box-shadow:var(--sh);cursor:pointer;transition:transform .15s}
+.subj:active{transform:scale(.98)}
+.subj .n{flex:1;font-weight:700;font-size:15px}
+.tag{font-size:11.5px;padding:4px 10px;border-radius:99px;white-space:nowrap;font-weight:700}
+.t-p{background:var(--lav)}.t-ok{background:var(--mint)}.t-f{background:var(--peach)}.t-r{background:var(--sky)}.t-x{background:var(--rose)}
+.dot{width:26px;height:26px;border-radius:50%;background:var(--lav);display:grid;place-items:center;font-size:14px}
+.ok .dot{background:var(--mint)}
+#ov{position:fixed;inset:0;background:rgba(60,45,90,.4);display:none;align-items:flex-end;justify-content:center;z-index:5}
+#ov.on{display:flex}
+.sheet{background:var(--bg);width:100%;max-width:560px;border-radius:32px 32px 0 0;padding:22px 18px calc(22px + env(safe-area-inset-bottom,0px));max-height:88%;overflow:auto}
+.btn{display:block;width:100%;border:0;font:inherit;font-weight:700;color:var(--tx);padding:14px;border-radius:20px;margin-top:8px;cursor:pointer;text-align:left}
+.b1{background:var(--mint)}.b2{background:var(--sky)}.b3{background:var(--peach)}.b4{background:var(--rose)}.b5{background:var(--lav)}.b6{background:var(--card);text-align:center;color:var(--mu)}
+.sw{display:flex;justify-content:space-between;align-items:center;margin:12px 4px;font-size:14px}
+.sw input{width:22px;height:22px;accent-color:var(--ac)}
+.info{background:var(--card);border-radius:18px;padding:10px 14px;font-size:13px;color:var(--mu);margin-top:8px}
+#toast{position:fixed;left:50%;top:calc(env(safe-area-inset-top,0px) + 16px);transform:translate(-50%,-140%);background:var(--card);padding:14px 22px;border-radius:99px;box-shadow:0 10px 30px rgba(155,135,224,.35);font-weight:800;z-index:9;transition:transform .4s;text-align:center;max-width:90%}
+#toast.on{transform:translate(-50%,0)}
+.cf{position:fixed;top:-20px;width:10px;height:14px;border-radius:50%;z-index:8;animation:f 2.2s ease-in forwards;pointer-events:none}
+@keyframes f{to{transform:translateY(105vh) rotate(540deg);opacity:.2}}
+
+.tabs{display:flex;gap:8px;background:var(--lav);padding:6px;border-radius:99px;margin-bottom:16px}
+.tabs button{flex:1;border:0;font:inherit;font-weight:800;color:var(--tx);background:transparent;padding:11px;border-radius:99px;cursor:pointer}
+.tabs button.on{background:var(--card);box-shadow:var(--sh)}
+.subj small{display:block;color:var(--mu);font-size:11.5px;font-weight:600;margin-top:2px}
+.subj.lock{opacity:.62}.subj.lock .dot{background:var(--rose)}
+.seg2{display:flex;gap:8px;margin:12px 0 4px}.seg2 button{flex:1;border:0;font:inherit;font-weight:700;font-size:13px;color:var(--tx);background:var(--card);padding:12px 8px;border-radius:99px;cursor:pointer}
+.seg2 button.on{background:var(--lav);box-shadow:var(--sh)}
+.row2{display:flex;gap:8px;margin-top:10px}.row2 label{flex:1;font-size:12px;color:var(--mu);font-weight:700}
+.row2 input{width:100%;margin-top:4px;border:2px solid var(--lav);background:var(--card);color:var(--tx);font:inherit;font-size:16px;padding:11px 14px;border-radius:18px}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin:6px 0 10px}
+.chip{border:0;font:inherit;font-size:12.5px;font-weight:700;color:var(--tx);background:var(--card);padding:8px 12px;border-radius:99px;cursor:pointer}
+.chip.on{background:var(--lav);box-shadow:var(--sh)}
+.warn{background:var(--rose);border-radius:18px;padding:12px 14px;font-size:13.5px;margin-top:10px;font-weight:700}
+.er{display:flex;align-items:center;gap:12px;background:var(--card);border-radius:22px;padding:12px 16px;margin-bottom:8px;box-shadow:var(--sh)}
+.er .m{flex:1}.er .m b{font-size:14.5px;display:block}.er .m span{font-size:12px;color:var(--mu)}
+.nt{min-width:62px;text-align:center;font-weight:800;font-size:18px;padding:8px 10px;border-radius:16px;background:var(--mint)}
+.nt.bad{background:var(--peach)}.nt.na{background:var(--lav);font-size:14px}
+</style></head><body>
+<h1>🧬 Mi escolaridad</h1>
+<div class="sub">Ingeniería en Biotecnología · vos podés con todo 💜</div>
+<div class="tabs"><button data-v="m" class="on">Materias</button><button data-v="e">Escolaridad</button></div>
+<div id="stats"></div><div id="list"></div>
+<div id="ov"><div class="sheet" id="sheet"></div></div><div id="toast"></div>
+<script>
+const PLAN=[["1.er año",[["Semestre 1",["Biología","Introducción a la biotecnología","Introducción al laboratorio","Matemática 1","Química general"]],["Semestre 2",["Aspectos éticos y sociales de la biotecnología","Física 1","Laboratorio de macromoléculas","Matemática 2","Química biológica","Química orgánica","Taller de física"]]]],
+["2.º año",[["Semestre 3",["Biología celular","Bioquímica","Física 2","Fisicoquímica 1","Laboratorio de biología celular","Probabilidad y estadística"]],["Semestre 4",["Biología molecular","Fisicoquímica 2","Genética y evolución","Laboratorio de enzimología","Matemática 3","Métodos y equipos analíticos","Taller de cultivos de células y tejidos"]]]],
+["3.er año",[["Semestre 5",["Fenómenos de transporte","Ingeniería genética","Laboratorio de biología molecular","Microbiología","Programación"]],["Semestre 6",["Bioinformática 1","Bioprocesos","Biorremediación","Economía","Inmunotecnologías","Laboratorio de microbiología","Taller de métodos moleculares de diagnóstico"]]]],
+["4.º año",[["Semestre 7",["Bioinformática 2","Bioseparaciones","Gestión de empresas","Laboratorio de control de calidad","Propiedad intelectual e industrial","Virología"]],["Semestre 8",["Agrobiotecnologías","Análisis y diseño de bioprocesos","Inmunotecnologías 2","Laboratorio de biotecnología vegetal","Temas avanzados en biotecnología"]]]],
+["5.º año",[["Semestre 9",["Bionegocios","Electiva 1","Tecnología de los alimentos","Trabajo final de carrera","Taller de ingeniería genética"]],["Semestre 10",["Electiva 2","Nanobiotecnología","Vacunas"]]]]];
+const all=[];PLAN.forEach((y,yi)=>y[1].forEach(c=>c[1].forEach(n=>all.push({id:all.length,n,yi}))));
+let S={},fresh=true;try{const r=localStorage.getItem("esc_blank");if(r){S=JSON.parse(r);fresh=false}}catch(e){}
+const save=()=>{try{localStorage.setItem("esc_blank",JSON.stringify(S))}catch(e){}};
+const g=id=>{const s=S[id]||(S[id]={});if(!s.init){s.init=1;s.how=s.how||null;s.mode=s.mode||(s.seg?"seg":null);s.pend=!!s.inFinal;s.ff=s.ff||0;s.rec=s.rec||0;s.prev=s.prev||[];s.ins=s.ins||null;s.apr=s.apr||null;s.ort=s.ort||0;s.req=s.req||"total";s.log=s.log||[];s.nota=s.nota??null;s.date=s.date||null}return s};
+const ok=(s,d=0)=>!!s.how&&d<60&&reqOk(s.apr,d),$=x=>document.getElementById(x);
+const today=()=>new Date().toISOString().slice(0,10),fmt=d=>d?d.split("-").reverse().join("/"):"";
+const aprCount=()=>all.filter(x=>ok(g(x.id))).length;
+const lv=(p,d=0)=>ok(g(p),d)||(g(p).mode==="final"&&g(p).pend);
+const itemOk=([p,t],d)=>t==="t"?ok(g(p),d+1):lv(p,d+1);
+const altOk=(al,d)=>al.items.every(i=>itemOk(i,d))&&(al.n==null||aprCount()>=al.n);
+const reqOk=(l,d=0)=>!l||!l.length||l.some(al=>altOk(al,d));
+function unmetOf(l){if(reqOk(l))return[];let best=null;l.forEach(al=>{const u=al.items.filter(i=>!itemOk(i,0)).map(([p,t])=>all[p].n+(t==="t"?" (aprobada)":" (parcial)"));if(al.n!=null&&aprCount()<al.n)u.push(`${al.n} materias aprobadas (tenés ${aprCount()})`);if(!best||u.length<best.length)best=u});return best||[]}
+const miss=id=>unmetOf(g(id).apr),cur=id=>unmetOf(g(id).ins);
+const stOf=p=>{const q=g(p);return ok(q)?`${q.nota??""}%`:q.how?"aprobada, espera su previa":(q.pend&&q.mode==="final")?"parcial pasado, falta examen":"sin aprobar"};
+const descAl=al=>[...al.items.map(i=>`${itemOk(i,0)?"✅":"❌"} ${all[i[0]].n} <i>(${i[1]==="t"?"aprobada":"parcial"})</i> · <b>${stOf(i[0])}</b>`),...(al.n!=null?[`${aprCount()>=al.n?"✅":"❌"} ${al.n} materias aprobadas <i>(tenés ${aprCount()})</i>`]:[])].join(" + ");
+const reqHtml=(ti,l)=>`<div class="info"><b>${ti}</b> ${!l||!l.length?"· sin previas ✅":(reqOk(l)?"✅":"❌")+"<br>"+l.map(descAl).join("<br><i>— o —</i><br>")}</div>`;
+function rebuild(s){const ty=(s.req==="parcial"&&s.mode!=="seg")?"p":"t";s.ins=s.prev.length?[{items:s.prev.map(p=>[p,ty]),n:null}]:[];s.apr=s.prev.length?[{items:s.prev.map(p=>[p,"t"]),n:null}]:[];s.ort=0}
+const SEED={ap:[],fl:[]};
+function seed(){SEED.ap.forEach(([n,v,d])=>{const a=all.find(x=>x.n===n);if(!a)return;const s=g(a.id);s.how="promo";s.nota=v;s.date=d;s.log.push({k:"promo",d,n:v})});
+SEED.fl.forEach(([n,c,d])=>{const a=all.find(x=>x.n===n);if(!a)return;const s=g(a.id);for(let k=0;k<c;k++)s.log.push({k:"failx",d:k===c-1?d:null,n:0})});save()}
+if(fresh)seed();
+const A1=(...x)=>[[x]];
+const DATA={
+"Agrobiotecnologías":{I:[[[["Biología molecular","t"]]]],A:[[[["Biología molecular","t"]]]]},
+"Bionegocios":{I:[[[["Introducción a la biotecnología","t"]]]],A:[[[["Introducción a la biotecnología","t"]]]]},
+"Bioprocesos":{I:[[[["Matemática 1","p"]]],[[["Física 1","p"]]]],A:[[[["Matemática 1","t"]]],[[["Física 1","t"]]]]},
+"Análisis y diseño de bioprocesos":{I:[[[["Bioprocesos","p"]]]],A:[[[["Bioprocesos","p"]]]]},
+"Bioinformática 1":{I:[[[["Química biológica","t"]]]],A:[[[["Química biológica","t"]]]]},
+"Bioinformática 2":{I:[[[["Química biológica","t"]]]],A:[[[["Química biológica","t"]]]]},
+"Bioseparaciones":{I:[[[["Química biológica","t"],["Química orgánica","t"]]]],A:[[[["Química biológica","t"],["Química orgánica","t"]]]]},
+"Fenómenos de transporte":{I:[[[["Física 1","p"]]]],A:[[[["Física 1","t"]]]]},
+"Ingeniería genética":{I:[[[["Bioquímica","t"]]]],A:[[[["Bioquímica","t"]]]]},
+"Inmunotecnologías":{I:[[[["Bioquímica","p"]]]],A:[[[["Bioquímica","t"]]]]},
+"Inmunotecnologías 2":{I:[[[["Inmunotecnologías","p"]]]],A:[[[["Inmunotecnologías","p"]]]]},
+"Laboratorio de biología molecular":{I:[[[["Laboratorio de macromoléculas","t"]]]],A:[[[["Laboratorio de macromoléculas","t"]]]]},
+"Laboratorio de biotecnología vegetal":{I:[[[["Laboratorio de biología molecular","t"]]],[[],32]],A:[[[["Laboratorio de biología molecular","t"]]]]},
+"Laboratorio de control de calidad":{I:[[[["Laboratorio de biología molecular","t"]]]],A:[[[["Laboratorio de biología molecular","t"]]]]},
+"Laboratorio de microbiología":{I:[[[["Laboratorio de biología celular","t"]]]],A:[[[["Laboratorio de biología celular","t"]]]]},
+"Nanobiotecnología":{I:[[[["Química biológica","t"],["Química orgánica","t"],["Laboratorio de macromoléculas","t"]]]],A:[[[["Química biológica","t"],["Química orgánica","t"],["Laboratorio de macromoléculas","t"]]]]},
+"Taller de cultivos de células y tejidos":{I:[[[["Laboratorio de biología celular","t"]]]],A:[[[["Laboratorio de biología celular","t"]]]]},
+"Taller de ingeniería genética":{I:[[[["Biología molecular","t"],["Laboratorio de biología molecular","t"]]]],A:[[[["Biología molecular","t"],["Laboratorio de biología molecular","t"]]]]},
+"Taller de métodos moleculares de diagnóstico":{I:[[[["Laboratorio de biología molecular","t"]]]],A:[[[["Laboratorio de biología molecular","t"]]]]},
+"Tecnología de los alimentos":{I:[[[["Microbiología","t"]]]],A:[[[["Microbiología","t"]]]]},
+"Temas avanzados en biotecnología":{I:[[[["Introducción a la biotecnología","t"]]],[[],25]],A:[[[["Introducción a la biotecnología","t"]]]]},
+"Trabajo final de carrera":{I:[[[],38]],A:[]},
+"Vacunas":{I:[[[["Inmunotecnologías","t"],["Microbiología","t"]]]],A:[[[["Inmunotecnologías","t"],["Microbiología","t"]]]]},
+"Virología":{I:[[[["Biología celular","t"]]]],A:[[[["Biología celular","t"]]]]},
+"Biología celular":{I:[[[["Biología","t"]]]],A:[[[["Biología","t"]]]]},
+"Bioquímica":{I:[[[["Química general","p"]]]],A:[[[["Química general","p"]]]]},
+"Laboratorio de biología celular":{I:[[[["Introducción al laboratorio","t"]]]],A:[[[["Introducción al laboratorio","t"]]]]},
+"Probabilidad y estadística":{I:[[[["Matemática 1","t"]]]],A:[[[["Matemática 1","t"]]]]},
+"Biología molecular":{I:[[[["Química biológica","t"]]]],A:[[[["Química biológica","t"]]]]},
+"Genética y evolución":{I:[[[["Biología","t"]]]],A:[[[["Biología","t"]]]]},
+"Matemática 3":{I:[[[["Matemática 1","t"]]]],A:[[[["Matemática 1","t"]]]]},
+"Biología":{I:[],A:[]},"Introducción a la biotecnología":{I:[],A:[]},"Introducción al laboratorio":{I:[],A:[]},"Matemática 1":{I:[],A:[]},"Química general":{I:[],A:[]},"Aspectos éticos y sociales de la biotecnología":{I:[],A:[]},"Física 1":{I:[],A:[]},"Laboratorio de macromoléculas":{I:[],A:[]},"Matemática 2":{I:[],A:[]},"Química biológica":{I:[],A:[]},"Química orgánica":{I:[],A:[]},"Taller de física":{I:[],A:[]},"Física 2":{I:[],A:[]},"Fisicoquímica 1":{I:[],A:[]},"Fisicoquímica 2":{I:[],A:[]},"Laboratorio de enzimología":{I:[],A:[]},
+"Microbiología":{I:[],A:[]},"Programación":{I:[],A:[]},"Economía":{I:[],A:[]},"Gestión de empresas":{I:[],A:[]},"Propiedad intelectual e industrial":{I:[],A:[]},"Biorremediación":{I:[],A:[]},"Métodos y equipos analíticos":{I:[],A:[]},"Electiva 1":{I:[],A:[]},"Electiva 2":{I:[],A:[]}};
+function migrate(){
+ all.forEach(a=>{const s=g(a.id);if(!s.ins&&!s.apr)rebuild(s)});
+ const cv=l=>l.map(al=>({items:al[0].map(([m,t])=>[all.find(x=>x.n===m).id,t]),n:al[1]===undefined?null:al[1]}));
+ Object.entries(DATA).forEach(([n,d])=>{const a=all.find(x=>x.n===n);if(!a)return;const s=g(a.id);s.ins=cv(d.I);s.apr=cv(d.A);s.ort=1;s.prev=[...new Set([...s.ins,...s.apr].flatMap(al=>al.items.map(i=>i[0])))]});
+ S._v=4;save()}
+if(S._v!==4)migrate();
+const OLDN=["Matemática 1","Química general","Biología","Introducción a la biotecnología","Introducción al laboratorio","Matemática 2","Química orgánica","Química biológica","Física 1","Aspectos éticos y sociales de la biotecnología","Laboratorio de macromoléculas","Taller de física","Probabilidad y estadística","Bioquímica","Biología celular","Fisicoquímica 1","Física 2","Laboratorio de biología celular","Matemática 3","Genética y evolución","Economía","Biología molecular","Fisicoquímica 2","Laboratorio de enzimología","Taller de cultivos de células y tejidos","Programación","Microbiología","Laboratorio de biología molecular","Fenómenos de transporte","Gestión de empresas","Bioinformática 1","Electiva","Inmunotecnologías","Bioprocesos","Laboratorio de microbiología","Métodos y equipos analíticos","Taller de métodos moleculares de diagnóstico","Bioinformática 2","Bionegocios","Ingeniería genética","Propiedad intelectual e industrial","Bioseparaciones","Laboratorio de control de calidad","Agrobiotecnologías","Inmunotecnologías 2","Análisis y diseño de bioprocesos","Temas avanzados en biotecnología","Laboratorio de biotecnología vegetal","Pasantía o Electiva","Tecnología de los alimentos","Virología","Taller de ingeniería genética","Vacunas","Nanobiotecnología","Biorremediación","Trabajo final de carrera"];
+function recoverOld(){let o=null;try{o=JSON.parse(localStorage.getItem("esc")||"null")}catch(e){}
+ if(o)OLDN.forEach((n,i)=>{const e=o[i];if(!e)return;const a=all.find(x=>x.n===n);if(!a)return;const s=g(a.id);
+  const m=e.mode||(e.seg?"seg":null);if(m&&!s.mode)s.mode=m;
+  if(!s.ort&&!s.prev.length&&e.prev&&e.prev.length){s.prev=e.prev.map(j=>all.find(x=>x.n===OLDN[j])).filter(Boolean).map(x=>x.id).filter(id=>id!==a.id);if(s.prev.length){s.req=e.req||"total";rebuild(s)}}});
+ S._l=1;save()}
+
+let V="m",SV="main";
+function tag(id){const s=g(id),m=cur(id);
+ if(s.how&&!ok(s))return["t-f","⏳ Aprobada · espera previa"];
+ if(s.how==="promo")return["t-ok",`✅ ${s.nota??""}% · 70%`];
+ if(s.how==="seg")return["t-ok",`✅ ${s.nota??""}% · 2ª inst.`];
+ if(s.how==="final")return["t-ok",`✅ ${s.nota??""}% · final`];
+ if(m.length&&!s.pend&&!s.rec&&!s.log.length)return["t-p","Previa pendiente"];
+ if(s.pend)return["t-f",(s.mode==="seg"?"🔄 En 2ª inst.":"📝 En final")+(s.ff?` · ${s.ff} desap.`:"")];
+ if(s.rec)return["t-r","🔁 Recursando"];
+ const nf=s.log.filter(l=>/fail|recur/.test(l.k)).length;if(nf)return["t-r",`❌ ${nf} no aprob.`];
+ return["t-p","Disponible"]}
+function avg(a){return a.length?(a.reduce((x,y)=>x+y,0)/a.length).toFixed(1)+"%":"—"}
+function stats(){
+ const done=all.filter(a=>ok(g(a.id))),tot=all.length,pct=Math.round(done.length/tot*100);
+ const c=h=>done.filter(a=>g(a.id).how===h).length,ff=all.reduce((t,a)=>t+g(a.id).ff,0),fin=c("final"),rec=all.reduce((t,a)=>t+g(a.id).rec,0);
+ const notas=done.map(a=>g(a.id).nota).filter(n=>n!=null);
+ const fails=all.flatMap(a=>g(a.id).log.filter(l=>/fail|recur/.test(l.k)).map(()=>0));
+ const enP=all.filter(a=>!ok(g(a.id))&&g(a.id).pend).length,bl=all.filter(a=>!g(a.id).how&&cur(a.id).length).length;
+ const rate=done.length?Math.round((c("promo"))/done.length*100):0;
+ return {done,tot,pct,c,ff,fin,rec,notas,fails,enP,bl,rate}}
+function render(){
+ document.querySelectorAll(".tabs button").forEach(b=>b.classList.toggle("on",b.dataset.v===V));
+ const t=stats();
+ let h=`<div class="card hero"><div style="display:flex;justify-content:space-between;align-items:end"><div><div class="big">${t.pct}%</div><div>${t.done.length} de ${t.tot} materias</div></div><div style="text-align:right"><div class="big" style="font-size:34px">${avg([...t.notas,...t.fails])}</div><div>promedio</div></div></div><div class="bar"><i style="width:${t.pct}%"></i></div>
+ <div style="font-size:13px;margin-top:10px">${t.pct>=100?"🎓 ¡Ingeniera/o en Biotecnología!":t.pct>=50?"✨ ¡Pasaste la mitad!":"🌱 Cada materia suma"}</div></div>`;
+ if(V==="m"){
+  h+=`<div class="card"><h2>📊 Tus estadísticas</h2><div class="grid">
+  <div class="st"><b>${t.c("promo")}</b><span>Promocionadas (70%+)</span></div><div class="st"><b>${t.c("seg")}</b><span>Aprobadas en 2ª instancia</span></div>
+  <div class="st"><b>${t.fin}</b><span>Aprobadas por final</span></div><div class="st"><b>${t.enP}</b><span>En 2ª instancia / final</span></div>
+  <div class="st"><b>${t.ff}</b><span>Finales desaprobados</span></div><div class="st"><b>${t.rec}</b><span>Recursadas</span></div></div>
+  <div class="info">Promoción directa: <b>${t.rate}%</b> · Con previa pendiente: <b>${t.bl}</b></div></div>`;
+  let i=0;
+  PLAN.forEach((y,yi)=>{const ya=all.filter(a=>a.yi===yi),yd=ya.filter(a=>ok(g(a.id))).length;
+   h+=`<div class="yr"><h2>${y[0]}</h2><span class="pill">${yd}/${ya.length}</span></div>`;
+   y[1].forEach(cu=>{h+=`<div class="cu">${cu[0]}</div>`;
+    cu[1].forEach(()=>{const a=all[i++],s=g(a.id),tg=tag(a.id),lk=0;
+     h+=`<button class="subj ${ok(s)?"ok":""} ${lk?"lock":""}" data-id="${a.id}"><span class="dot">${ok(s)?"✓":lk?"🔒":"·"}</span><span class="n">${a.n}<small>${s.mode==="seg"?"Instancia: 2ª instancia":s.mode==="final"?"Instancia: examen final":"Tocá para elegir 2ª instancia o final"}</small></span><span class="tag ${tg[0]}">${tg[1]}</span></button>`})})});
+ }else{
+  const nf=a=>g(a.id).log.filter(l=>/fail|recur/.test(l.k)),rep=all.reduce((x,a)=>x+nf(a).length,0);
+  h+=`<div class="card"><h2>🎓 Certificado de escolaridad</h2><div class="grid"><div class="st"><b>${avg([...t.notas,...t.fails])}</b><span>Promedio de calificaciones</span></div><div class="st"><b>${avg(t.notas)}</b><span>Promedio de materias aprobadas</span></div><div class="st"><b>${t.done.length} / ${t.tot}</b><span>Materias obtenidas / requeridas</span></div><div class="st"><b>${rep}</b><span>Reprobaciones</span></div></div><div class="info">Promedio = suma de notas de aprobación ÷ (aprobadas + reprobaciones). Cada reprobación vale 0%.</div></div>`;
+  let i=0;PLAN.forEach(y=>y[1].forEach(cu=>{h+=`<div class="cu">${cu[0]}</div>`;cu[1].forEach(()=>{const a=all[i++],s=g(a.id),f=nf(a),ld=f.map(l=>l.d).filter(Boolean).sort().pop();
+   h+=`<div class="er"><div class="m"><b>${ok(s)?"✓ ":""}${a.n}</b><span>${s.how?`${fmt(s.date)} · Aprobada ${s.nota??""}%${ok(s)?"":" (espera previa)"}`:"Sin aprobar"}</span></div><div style="text-align:right;font-size:12px;color:var(--mu)">${f.length?`${f.length} no aprob.<br>${fmt(ld)}`:""}</div></div>`})}))}
+ $("stats").innerHTML=h;$("list").innerHTML=""; }
+const MSG=["¡Felicitaciones! 🎉","¡Bien ahí, crack! 🌸","¡Lo lograste! 💜 Orgullo total","¡Aprobada! ✨ Seguí así","¡Qué grande! 🥳 Un paso más cerca del título"];
+function confetti(){const cols=["#f5a9c6","#b9a6f2","#a8e3c8","#ffd0b5","#a9d6f5","#ffe58f"];for(let k=0;k<50;k++){const e=document.createElement("i");e.className="cf";e.style.left=Math.random()*100+"vw";e.style.background=cols[k%6];e.style.animationDelay=Math.random()*.5+"s";document.body.appendChild(e);setTimeout(()=>e.remove(),3000)}}
+function toast(m){const t=$("toast");t.textContent=m;t.classList.add("on");setTimeout(()=>t.classList.remove("on"),3200)}
+function sheet(id){
+ delete $("sheet").dataset.bulk;$("sheet").dataset.id=id;const s=g(id),a=all[id],tg=tag(id),m=miss(id);
+ if(SV==="prev"){let h=`<h2 style="font-size:20px">Previas de ${a.n}</h2><div class="info">Elegí las materias que tenés que tener aprobadas antes.</div>`;
+  PLAN.forEach((y,yi)=>{const xs=all.filter(x=>x.yi===yi&&x.id!==id);h+=`<div class="cu">${y[0]}</div><div class="chips">${xs.map(x=>`<button class="chip ${s.prev.includes(x.id)?"on":""}" data-p="${x.id}">${x.n}</button>`).join("")}</div>`});
+  $("sheet").innerHTML=h+`<div class="cu">Para inscribirme, cada previa tiene que estar:</div><div class="seg2"><button class="${s.req==="parcial"?"":"on"}" data-a="r-total">💯 Aprobada (total)</button><button class="${s.req==="parcial"?"on":""}" data-a="r-parcial">📝 Parcial (ir a examen)</button></div><button class="btn b1" data-a="back">Listo ✓</button>`;return}
+ let h=`<h2 style="font-size:20px">${a.n}</h2><div style="margin-top:6px"><span class="tag ${tg[0]}">${tg[1]}</span></div>`;
+ h+=reqHtml("Para inscribirme",s.ins)+reqHtml("Para aprobar",s.apr);
+ h+=`<div class="cu" style="margin-top:14px">Si no llego al 70%, esta materia se resuelve con:</div><div class="seg2"><button class="${s.mode==="seg"?"on":""}" data-a="m-seg">🔄 2ª instancia de parcial</button><button class="${s.mode==="final"?"on":""}" data-a="m-final">📝 Examen final</button></div>`;
+ const inputs=`<div class="row2"><label>Nota (%)<input id="nota" type="number" inputmode="decimal" min="0" max="100" step="0.1" placeholder="ej. 85" value="${s.nota??""}"></label><label>Fecha<input id="fecha" type="date" value="${s.date||today()}"></label></div>`;
+ if(s.how){h+=(m.length?`<div class="warn">⏳ Queda en espera: se confirma cuando apruebes ${m.join(", ")}.</div>`:"")+inputs+`<button class="btn b1" data-a="savenota">💾 Guardar nota y fecha</button>`}
+ 
+ else if(!s.mode){h+=`<div class="info">Elegí arriba cómo se resuelve esta materia para ver las opciones 👆</div>`}
+ else{h+=([...new Set([...cur(id),...m])].length?`<div class="warn">⚠️ Todavía no cumplís las previas (te falta: ${[...new Set([...cur(id),...m])].join(", ")}). Podés registrarla igual, pero queda en espera hasta que las apruebes.</div>`:"")+inputs+`<div class="info">La nota solo se pone al aprobar. Si desaprobás un examen o recursás, cuenta como 0 en el promedio.</div><button class="btn b1" data-a="promo">🌟 Aprobé con 70% o más</button>`;
+  if(!s.pend)h+=`<button class="btn b3" data-a="pend">${s.mode==="seg"?"🔄 No llegué al 70% → voy a 2ª instancia":"📝 No llegué al 70% → rindo examen final"}</button>`;
+  else if(s.mode==="seg")h+=`<button class="btn b2" data-a="segok">✅ Aprobé la 2ª instancia</button><button class="btn b4" data-a="segfail">😮‍💨 No aprobé la 2ª instancia → recursar</button>`;
+  else h+=`<div class="info">Finales desaprobados: <b>${s.ff}</b></div><button class="btn b2" data-a="finok">🎉 Aprobé el final</button><button class="btn b5" data-a="finfail">😕 Desaprobé el final (siguiente intento)</button><button class="btn b4" data-a="recur">🔁 Voy a recursar</button>`}
+ if(s.rec)h+=`<div class="info">Veces recursada: <b>${s.rec}</b></div>`;
+ $("sheet").innerHTML=h+`<button class="btn b6" data-a="reset">↺ Reiniciar esta materia</button><button class="btn b6" data-a="close">Cerrar</button>`;$("ov").classList.add("on")}
+document.querySelector(".tabs").onclick=e=>{const b=e.target.closest("button");if(b){V=b.dataset.v;render()}};
+$("stats").onclick=e=>{if(e.target.closest("[data-a=bulk]")){bulkSheet();return}const b=e.target.closest(".subj");if(b){SV="main";sheet(+b.dataset.id)}};
+$("ov").onclick=e=>{if(e.target.id==="ov"){$("ov").classList.remove("on");return}
+ if($("sheet").dataset.bulk){const x=e.target.closest("[data-a]");if(x&&x.dataset.a==="bulkgo")bulkApply();else if(x&&x.dataset.a==="close")$("ov").classList.remove("on");return}
+ const id=+$("sheet").dataset.id,s=g(id);
+ const ch=e.target.closest("[data-p]");if(ch){const p=+ch.dataset.p,i=s.prev.indexOf(p);i>=0?s.prev.splice(i,1):s.prev.push(p);rebuild(s);save();sheet(id);render();return}
+ const el=e.target.closest("[data-a]");if(!el)return;const a=el.dataset.a;
+ const nv=$("nota")?$("nota").value:"",nota=nv===""?null:Math.min(100,Math.max(0,+nv)),d=$("fecha")?$("fecha").value||today():today();
+ const before=all.filter(x=>!ok(g(x.id))&&!cur(x.id).length).map(x=>x.id),okB=all.filter(x=>ok(g(x.id))).map(x=>x.id);
+ const log=(k,n)=>s.log.push({k,d,n});
+ if(a==="close"){$("ov").classList.remove("on");return}
+ if(a==="prev"){SV="prev";sheet(id);return}
+ if(a==="back"){SV="main";sheet(id);return}
+ if(a==="r-total"||a==="r-parcial"){s.req=a.slice(2);rebuild(s);save();sheet(id);render();return}
+ if(a==="m-seg"||a==="m-final"){s.mode=a.slice(2);save();sheet(id);render();return}
+ if(["promo","segok","finok"].includes(a)){if(nota==null){toast("Poné la nota primero 💜");return}
+  s.how=a==="promo"?"promo":a==="segok"?"seg":"final";s.nota=nota;s.date=d;s.pend=false;log(a,nota)}
+ else if(a==="savenota"){s.nota=nota;s.date=d;const l=s.log.slice().reverse().find(x=>/ok$|promo/.test(x.k));if(l){l.n=nota;l.d=d}}
+ else if(a==="pend"){s.pend=true}
+ else if(a==="finfail"){s.ff++;log("finfail",0)}
+ else if(a==="segfail"){s.rec++;s.pend=false;s.ff=0;log("segfail",0)}
+ else if(a==="recur"){s.rec++;s.pend=false;s.ff=0;log("recur",0)}
+ else if(a==="reset"){Object.assign(s,{how:null,nota:null,date:null,pend:false,ff:0,rec:0,log:[]})}
+ save();render();
+ if(["promo","segok","finok"].includes(a)){$("ov").classList.remove("on");
+  const left=all.filter(x=>!ok(g(x.id))).length,nu=all.filter(x=>!ok(g(x.id))&&!g(x.id).how&&!cur(x.id).length&&!before.includes(x.id)).map(x=>x.n),cf=all.filter(x=>x.id!==id&&ok(g(x.id))&&!okB.includes(x.id)).map(x=>x.n);
+  if(!ok(s))toast("⏳ Registrado. Queda en espera hasta que apruebes: "+miss(id).slice(0,3).join(", "));
+  else{confetti();toast(left===0?"🎓 ¡¡TERMINASTE LA CARRERA!! ¡Ingeniera/o en Biotecnología!":`${MSG[Math.floor(Math.random()*MSG.length)]} Sacaste ${nota}%. Faltan ${left}.`+(cf.length?` ✅ Se confirmó: ${cf.slice(0,3).join(", ")}.`:"")+(nu.length?` 🔓 Se habilitó: ${nu.slice(0,3).join(", ")}${nu.length>3?"…":""}`:""))}}
+ else if(a==="finfail"){sheet(id);toast("💪 Ya casi, el próximo es el bueno")}
+ else if(a==="segfail"||a==="recur"){$("ov").classList.remove("on");toast("🌈 Nueva oportunidad, vas a rendir mejor")}
+ else if(a==="savenota"){toast("💾 Guardado");sheet(id)}
+ else sheet(id)};
+function bulkSheet(){const sh=$("sheet");sh.dataset.bulk="1";
+const cur=all.filter(a=>g(a.id).prev.length&&!g(a.id).ort).map(a=>a.n+": "+g(a.id).prev.map(p=>all[p].n).join(", ")).join("\n");
+sh.innerHTML=`<h2 style="font-size:20px">📋 Previas en bloque</h2><div class="info">Una materia por línea: <b>Materia: previa 1, previa 2</b><br>Ej: Matemática 2: Matemática 1<br>Podés ir sumando de a poco; reemplaza solo las materias que escribas.</div><textarea id="bulk" placeholder="Matemática 2: Matemática 1" style="width:100%;height:240px;margin-top:10px;border:2px solid var(--lav);background:var(--card);color:var(--tx);font:inherit;font-size:15px;padding:12px;border-radius:20px">${cur}</textarea><button class="btn b1" data-a="bulkgo">Guardar previas ✓</button><button class="btn b6" data-a="close">Cerrar</button>`;$("ov").classList.add("on")}
+const nz=x=>x.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"").replace(/\s+/g," ").trim();
+function bulkApply(){const bad=[];$("bulk").value.split("\n").forEach(l=>{const i=l.indexOf(":");if(i<0)return;const f=nz(l.slice(0,i)),t=all.filter(a=>nz(a.n)===f);if(!t.length){if(f)bad.push(l.slice(0,i).trim());return}
+const ps=[];l.slice(i+1).split(/[,;]/).forEach(p=>{const q=nz(p);if(!q)return;const m=all.find(a=>nz(a.n)===q)||all.find(a=>nz(a.n).startsWith(q));if(m&&m.id!==t[0].id)ps.push(m.id);else bad.push(p.trim())});
+{const q=g(t[0].id);q.prev=[...new Set(ps)];rebuild(q)}});save();render();$("ov").classList.remove("on");toast(bad.length?"Guardado. No encontré: "+bad.slice(0,3).join(", "):"💜 Previas guardadas")}
+render();
+</script></body></html>
